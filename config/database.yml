@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: emails
+  pool: 2
+  username: joey
+  password: ventsoftrench35
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['ec2-54-235-132-202.compute-1.amazonaws.com'] %>
+  database: <%= ENV['db55jo8q2ghar9'] %>
+  username: <%= ENV['pzfuofzpyffizq'] %>
+  password: <%= ENV['21f32ff82a70f5b2d1f43e3f26ed0edfd6e8c8e27a8ef131b09ebfed5dbd4ee6'] %>
