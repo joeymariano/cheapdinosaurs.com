@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    url = 'https://api.songkick.com/api/3.0/artists/1892714/calendar.json?apikey=' + ENV['SONGKICK_API_KEY']
+    url = "https://api.songkick.com/api/3.0/artists/1892714/calendar.json?apikey=#{ENV['SONGKICK_API_KEY']}"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     result = JSON.parse(response)
