@@ -1,18 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'sinatra'
+ruby '2.5.1'
+
+gem "sinatra", ">= 2.0.2"
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem "activemodel"
 gem 'require_all'
 gem 'pg'
-gem 'rack'
-gem 'rake'
+gem "rack", ">= 2.0.6"
+gem 'rake', :groups => [:development, :production]
 
 
 
 group :development do
-  gem 'rake'
+  gem 'dotenv'
   gem 'pry'
   gem 'tux'
   gem 'shotgun'

@@ -1,14 +1,69 @@
-<div id="logo"><img src="/images/cheapdinos-ani-full.gif" alt=""></div>
-<div id="links">
-  <span style="background-color: #00FFAA"><a href="http://cheapdinosaurs.bandcamp.com" target="_blank">BANDCAMP</a></span>
-  <span style="background-color: #00FFAA"><a href="http://twitter.com/cheapdinosaurs" target="_blank">TWITTER</a></span>
-  <span style="background-color: #00FFAA"><a href="http://facebook.com/cheapdinosaurs/" target="_blank">FACEBOOK</a></span>
-</div>
+<div class="container">
 
-<div id="pics">
-  <img src="/images/dino1.gif">
-  <img src="/images/joey1.gif">
-  <img src="/images/paul1.gif">
-  <img src="/images/kev.gif">
-  <img src="/images/world-science-fest.gif">
+  <div class="row">
+    <!-- ηmlstyl -->
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"><img class="img-fluid" src="images/cheapdinos-ani.gif"></div>
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"><img class="img-fluid glitch" src="images/sketch-big.gif"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center text-sm-center text-md-left">
+                          <h2>LISTEN</h2>
+                          <h3><a href="https://cheapdinosaurs.bandcamp.com">bandcamp</a></h2>
+                          <h3><a href="https://music.apple.com/us/artist/cheap-dinosaurs/502656278?mt=1&app=music">itunes</a></h2>
+                          <h3><a href="https://open.spotify.com/artist/0byrdgGBoGMDTPAviprMTs">spotify</a></h2>
+                            <br>
+                          <h2>SOCIAL</h2>
+                          <h3><a href="https://twitter.com/cheapdinosaurs">twitter</a></h2>
+                          <h3><a href="https://facebook.com/cheapdinosaurs">facebook</a></h2>
+
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+      <img class='img-fluid artist-pic' src="images/cheapDinosBandPhoto.jpg">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+      <img class='img-fluid artist-pic' src="images/raptorClaw.png">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+      <div id='showwrapper'>
+      <h4>UPCOMING SHOWS</h4>&nbsp;&nbsp;&nbsp;
+      <a href='http://songkick.com'><div id="skcontainer">
+          <img class='img-fluid' src="/images/songkick.png" />
+        </div></a>
+        </div>
+        <% if @events %>
+          <% @events.each do |event| %>
+            <ul>
+              <li><a href='<%= event['uri'].downcase %>'>songkick.com link</a>
+              <li><%= event['displayName'].downcase %></li>
+              <li>city: <%= event['location']['city'].downcase %></li>
+              <li>venue: <a href="<%= event['venue']['uri'] %>"><%= event['venue']['displayName'].downcase %></a></li>
+            </ul>
+          <% end %>
+        <% else %>
+          <ul>
+            <li>no shows have been announced.</li>
+          </ul>
+        <% end %>
+    </div>
+
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+      <form action="/email" method="POST">
+        <div class="form-group">
+          <% if flash.now.include?(:notice) %>
+            <label for="email"><%= flash.now[:notice] %></label>
+          <% else %>
+            <label for="email">email list to be notified of shows and releases:</label>
+          <% end %>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form><br /><br />
+    </div>
+  </div>
+
+  <footer>copyright cheap dinosaurs 2018<br />photos courtesty of Sochi Thomas and <a href="http://chiptography.com">Chiptography.com</a></footer>
 </div>
