@@ -144,7 +144,7 @@ a:visited {
 /* mouse over link */
 a:hover {
     text-decoration: none;
-    background-color: #66d9ef;
+    background-color: #333333;
     color: black;
     -webkit-transition: all 0s ease;
     -moz-transition: all 0s ease;
