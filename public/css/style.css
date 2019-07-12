@@ -120,6 +120,14 @@ ul a{
   height: 27px;
 }
 
+#venue-list{
+ display: inline;
+}
+
+.venue-list-item {
+  float: left;
+}
+
 footer {
   color: #999999;
   font-size: .85em;
