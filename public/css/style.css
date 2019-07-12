@@ -1,7 +1,7 @@
 /* blue: #66d9ef  rgb(102, 217, 239)
 green: #45c468  rgb(69, 196, 104)
 pink: #ff79c6  	rgb(255, 121, 198)
-purple:  #50fa7b  	rgb(189, 147, 249)
+purple:  #03caa3  	rgb(189, 147, 249)
 bg: #282a36  	rgb(40, 42, 54) */
 
 body {
@@ -79,8 +79,8 @@ form {
 
 #email:focus {
   color: #000;
-  background-color: #50fa7b;
-  border-color: #50fa7b;
+  background-color: #03caa3;
+  border-color: #03caa3;
   font-weight: bold;
   outline: none;
 }
@@ -129,7 +129,7 @@ footer {
 
 /* unvisited link */
 a:link {
-    color: #50fa7b;
+    color: #03caa3;
     -webkit-transition: all 2s ease;
     -moz-transition: all 2s ease;
     -ms-transition: all 2s ease;
@@ -139,7 +139,7 @@ a:link {
 
 /* visited link */
 a:visited {
-    color: #50fa7b;
+    color: #03caa3;
 }
 
 /* mouse over link */
