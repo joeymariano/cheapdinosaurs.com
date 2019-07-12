@@ -79,8 +79,8 @@ form {
 
 #email:focus {
   color: #000;
-  background-color: #66d9ef;
-  border-color: #66d9ef;
+  background-color: #50fa7b;
+  border-color: #50fa7b;
   font-weight: bold;
   outline: none;
 }
