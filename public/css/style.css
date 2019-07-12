@@ -121,11 +121,11 @@ ul a{
 }
 
 #venue-list{
- display: inline;
+ text-align: center;
 }
 
 .venue-list-item {
-  float: left;
+  float: center;
 }
 
 footer {
