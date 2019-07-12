@@ -1,9 +1,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: emails
+  database: cheapdinos_emails
   pool: 2
-  username: joey
+  username: cheapdinos_emails
   password: ventsoftrench35
 
 production:
