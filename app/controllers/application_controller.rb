@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
   enable :sessions
