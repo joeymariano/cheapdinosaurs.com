@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
   get '/' do
     url = "https://api.songkick.com/api/3.0/artists/1892714/calendar.json?apikey=#{ENV['SONGKICK_API_KEY']}"
     uri = URI(url)
-    response = Net::HTTP.get(uri)
+    response = Net::HTTP.get(uri) # should try to get this to still load when songkick or internet is down
     result = JSON.parse(response)
     @events = result['resultsPage']['results']['event']
     erb :'root'
