@@ -15,13 +15,16 @@
   .songkick {
     font-size: 1em;
   }
+  #pixel-animation {
+    display: none;
+  }
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   h2 {
     font-size: 2em;
-    margin-top: -30px;
+    margin-top: -40px;
   }
   h3 {
     font-size: 1.4em;
@@ -43,6 +46,9 @@
     width: 50%;
     float: left;
     text-align: right;
+  }
+  #pixel-animation {
+    display: none;
   }
 }
 
@@ -70,6 +76,9 @@
     width: auto;
     float: none;
     text-align: left;
+  }
+  #pixel-animation {
+    display: inline;
   }
 }
 
