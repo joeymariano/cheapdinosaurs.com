@@ -51,7 +51,7 @@
   #social-links-div .main-list-link{
     margin-right: -6px;
   }
-  #showwrapper > a {
+  #showwrapper > a {  /* center songkick link */
     margin-top: 18px;
   }
 
@@ -91,6 +91,9 @@
   .main-list-link{
     font-size: 1.2em;
     letter-spacing: .8em;
+  }
+  #showwrapper > a {  /* center songkick link */
+    margin-top: 12px;
   }
 
 
@@ -133,6 +136,11 @@
   footer{
     font-size: .8em;
   }
+
+  #showwrapper > a {  /* center songkick link */
+    margin-top: -2px;
+  }
+
   /* makes list vertical */
   #main-list-wrapper {
     display: inline;
@@ -187,5 +195,9 @@
   .main-list-link {
     font-size: 1.3em;
     letter-spacing: .8em;
+  }
+
+  #showwrapper > a {  /* center songkick link */
+    margin-top: 0;
   }
 }
