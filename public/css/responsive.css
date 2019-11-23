@@ -10,10 +10,10 @@
     font-size: 1.4em;
   }
   footer{
-    font-size: .9em;
+    font-size: .8em;
   }
   .songkick {
-    font-size: 1em;
+    font-size: .8em;
   }
   #pixel-animation {
     display: none;
@@ -32,7 +32,7 @@
     padding: 10px 0 0 0 ;
   }
   footer{
-    font-size: 1em;
+    font-size: .8em;
   }
   .songkick {
     font-size: 1.2em;
@@ -84,7 +84,7 @@
   }
   .main-list-link {
     font-size: 1.2em;
-    letter-spacing: .6em;
+    letter-spacing: .8em;
     /* top | right | bottom | left */
     padding: 0;
   }
