@@ -1,124 +1,128 @@
 <% require 'sinatra/flash' %>
 
-  <%# <!-- ηmlstyl --> %>
+<!-- ηmlstyl -->
 
-  <div class="row header">
-    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-      <br><img class="img-fluid" src="images/logo.png"></div>
-
-    <div class="col-xl-4 col-lg-4 col-md-0 col-sm-12 col-12">
-      <br><img id='pixel-animation' class="img-fluid" src="images/bg-ani-strip.gif"></div>
+<div class="row header">
+  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+    <br><img class="img-fluid" src="images/logo.png">
   </div>
 
-  <div class="row">
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center text-sm-center text-md-left">
-      <div id="listen-links">
-        <h2>LISTEN</h2>
-        <h3><a href="https://cheapdinosaurs.bandcamp.com">bandcamp</a></h3>
-        <h3><a href="https://music.apple.com/us/artist/cheap-dinosaurs/502656278?mt=1&app=music">itunes</a></h3>
-        <h3><a href="https://open.spotify.com/artist/0byrdgGBoGMDTPAviprMTs">spotify</a></h3>
-        <h3><a href="/#videos">videos</a></h3>
-      </div>
+  <div class="col-xl-4 col-lg-4 col-md-0 col-sm-12 col-12">
+    <br><img id='pixel-animation' class="img-fluid" src="images/bg-ani-strip.gif">
+  </div>
+</div>
 
-      <div id="social-links">
-        <h2>SOCIAL</h2>
-        <h3><a href="https://twitter.com/cheapdinosaurs">twitter</a></h3>
-        <h3><a href="https://facebook.com/cheapdinosaurs">facebook</a></h3>
-      </div>
+<div class="row">
+  <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center text-sm-center text-md-left">
+    <div id="listen-links-div">
+      <h2>LISTEN</h2>
+      <ul id="listen-links-list">
+        <li class="main-list-li"><a class="main-list-link" href="https://cheapdinosaurs.bandcamp.com">bandcamp</a></li>
+        <li class="main-list-li"><a class="main-list-link" href="https://music.apple.com/us/artist/cheap-dinosaurs/502656278?mt=1&app=music">itunes</a></li>
+        <li class="main-list-li"><a class="main-list-link" href="https://open.spotify.com/artist/0byrdgGBoGMDTPAviprMTs">spotify</a></li>
+        <li class="main-list-li"><a class="main-list-link" href="/#videos">videos</a></li>
+      </ul>
     </div>
 
-    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-      <img class='img-fluid artist-pic' src="images/cheapDinosBandPhoto.jpg">
-    </div>
-
-    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-      <img class='img-fluid artist-pic' src="images/raptorClaw.png">
+    <div id="social-links-div">
+      <h2>SOCIAL</h2>
+      <ul id="social-links-list">
+        <li class="main-list-li"><a class="main-list-link" href="https://twitter.com/cheapdinosaurs">twitter</a></li>
+        <li class="main-list-li"><a class="main-list-link" href="https://facebook.com/cheapdinosaurs">facebook</a></li>
+      </ul>
     </div>
   </div>
 
+  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+    <img class='img-fluid artist-pic' src="images/cheapDinosBandPhoto.jpg">
+  </div>
 
+  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+    <img class='img-fluid artist-pic' src="images/raptorClaw.png">
+  </div>
+</div>
 
-  <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-      <div id='showwrapper'>
-      <h4>UPCOMING SHOWS</h4>&nbsp;&nbsp;&nbsp;
-      <a href='http://songkick.com'><div id="skcontainer">
-          <img class='img-fluid' src="/images/songkick.png" />
-        </div></a>
-        </div>
-        <% if @events %>
-          <% @events.each do |event| %>
-            <ul>
-              <li><a href='<%= event['uri'].downcase %>'>songkick.com link</a>
-              <li><%= event['displayName'].downcase %></li>
-              <li>city: <%= event['location']['city'].downcase %></li>
-              <li>venue: <a href="<%= event['venue']['uri'] %>"><%= event['venue']['displayName'].downcase %></a></li>
-            </ul>
-          <% end %>
-        <% else %>
+<div class="row">
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+    <div id='showwrapper'>
+    <h3>upcoming shows</h3>&nbsp;&nbsp;&nbsp;
+    <a href='http://songkick.com'><div id="skcontainer">
+        <img class='img-fluid' src="/images/songkick.png" />
+      </div></a>
+      </div>
+      <% if @events %>
+        <% @events.each do |event| %>
           <ul>
-            <li>no shows have been announced.</li>
+            <li><a href='<%= event['uri'].downcase %>'>songkick.com link</a>
+            <li><%= event['displayName'].downcase %></li>
+            <li>city: <%= event['location']['city'].downcase %></li>
+            <li>venue: <a href="<%= event['venue']['uri'] %>"><%= event['venue']['displayName'].downcase %></a></li>
           </ul>
         <% end %>
-    </div>
-
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-      <form action="/email" method="POST">
-        <div class="form-group">
-          <% if flash[:notice] %>
-            <label for="email"><%= flash[:notice] %></label>
-          <% else %>
-            <label for="email">email list to be notified of shows and releases:</label>
-          <% end %>
-          <input type="email" class="form-control" id="email" name="email">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form><br /><br />
-    </div>
+      <% else %>
+        <ul>
+          <li>no shows have been announced.</li>
+        </ul>
+      <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-xl-12">
-    <h4>BIO</h4>
-
-<p>Cheap dinosaurs is a synth rock band that creates instrumental music. Based out of Philadelphia and led by Dino Lionetti, Cheap Dinosaurs' etherial experience combines catchy melodies with jagged, rusty, driving rhythms, arcade aesthetics, loud guitars, and dirty synthesizer leads.  The band is a collective of game composers and technoligists who are instrumentalists: Paul [<a href="http://chipocrite.com" target="_blank">chipocrite.com</a>] creates music for the company <a href="https://www.cleaversoft.com/" target="_blank">Cleaversoft</a>, Dino works freelance and has composed for <a href="https://store.steampowered.com/app/422810/River_City_Ransom_Underground/" target="_blank">River City Ransom Underground</a> and <a href="http://highstrangenessgame.com/" target="_blank">High Strangeness</a>, and Joey [<a href="http://chipocrite.com" target="_blank">nmlstyl.com</a>] works in the retro homebrew community along with creating art assets for band.  Chris Singer, Dino, and sometimes Joey team up to create code and moving graphics for live visuals.  Rhythmic mercenary Kev ties everything together with pinpoint drumming accuracy.  Kev has a history of propping up vgm adjacent bands such as <a href="https://open.spotify.com/artist/6NNEo1mIVmAmgwNKQMCiJB" target="_blank">Close to Good</a> and Super Strikers, the <a href="http://www.bravewave.net/" target="_blank">Bravewave</a> label's in-house band.  Dino also works with <a href="http://www.bravewave.net/" target="_blank">Bravewave</a> arranging and playing keys. Over the course of a decade they have played events and venues such as:</p>
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+    <form action="/email" method="POST">
+      <div class="form-group">
+        <% if flash[:notice] %>
+          <label for="email"><%= flash[:notice] %></label>
+        <% else %>
+          <label for="email">email list to be notified of shows and releases:</label>
+        <% end %>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form><br /><br />
+  </div>
 </div>
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <ul class="venue-list">
-        <li class="venue-list-item"><a href="http://www.blipfestival.org/" target="_blank">Blip Festival</a></li>
-        <li class="venue-list-item"><a href="http://www.magfest.org/" target="_blank">MAGfest</a></li>
-        <li class="venue-list-item"><a href="https://www.bitgengamerfest.com/" traget="_blank">BitGen</a></li>
-        <li class="venue-list-item"><a href="https://boston8bit.com/" target="_blank">Boston 8bit</a></li>
-        <li class="venue-list-item"><a href="https://technical.ly/philly/2013/04/20/pong-cira-centre/" target="_blank">Pong/Tetris on the Cira Center</a></li>
-        <li class="venue-list-item"><a href="https://www.facebook.com/iochipmusic" target="_blank">I/O</a></li>
-        <li class="venue-list-item"><a href="http://pulsewave.org/" target="_blank">Pulsewave</a></li>
-        <li class="venue-list-item"> <a href="https://babycastles.com" target="_blank">Baby Castles</a></li>
-        <li class="venue-list-item"><a href="https://vanswarpedtour.com/" target="_blank">Warped Tour</a></li>
-        <li class="venue-list-item"><a href="http://melbourne.squaresoundsfestival.com" target="_blank">Square Sounds Melbourne</a></li>
-        <li class="venue-list-item"><a href="https://www.animenext.org/" target="_blank">AnimeNext</a></li>
-        <li class="venue-list-item"><a href="http://toomanygames.com" target="_blank">Too Many Games</a></li>
-        <li class="venue-list-item"><a href="https://library.temple.edu/beyondthepage" target="_blank">Temple University's Beyond the Page</a></li>
-        <li class="venue-list-item"><a href="http://wkdu.org/" target="_blank">Drexel Radio</a></li>
-      <ul>
-    </div>
+
+<div class="row">
+  <div class="col-xl-12">
+    <h3>bio</h3>
+    <p>Cheap dinosaurs is a synth rock band that creates instrumental music. Based out of Philadelphia and led by Dino Lionetti, Cheap Dinosaurs' etherial experience combines catchy melodies with jagged, rusty, driving rhythms, arcade aesthetics, loud guitars, and dirty synthesizer leads.  The band is a collective of game composers and technoligists who are instrumentalists: Paul [<a href="http://chipocrite.com" target="_blank">chipocrite.com</a>] creates music for the company <a href="https://www.cleaversoft.com/" target="_blank">Cleaversoft</a>, Dino works freelance and has composed for <a href="https://store.steampowered.com/app/422810/River_City_Ransom_Underground/" target="_blank">River City Ransom Underground</a> and <a href="http://highstrangenessgame.com/" target="_blank">High Strangeness</a>, and Joey [<a href="http://chipocrite.com" target="_blank">nmlstyl.com</a>] works in the retro homebrew community along with creating art assets for band.  Chris Singer, Dino, and sometimes Joey team up to create code and moving graphics for live visuals.  Rhythmic mercenary Kev ties everything together with pinpoint drumming accuracy.  Kev has a history of propping up vgm adjacent bands such as <a href="https://open.spotify.com/artist/6NNEo1mIVmAmgwNKQMCiJB" target="_blank">Close to Good</a> and Super Strikers, the <a href="http://www.bravewave.net/" target="_blank">Bravewave</a> label's in-house band.  Dino also works with <a href="http://www.bravewave.net/" target="_blank">Bravewave</a> arranging and playing keys. Over the course of a decade they have played events and venues such as:</p>
   </div>
 
-  <br>
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <ul class="venue-list">
+      <li class="venue-list-item"><a href="http://www.blipfestival.org/" target="_blank">Blip Festival</a></li>
+      <li class="venue-list-item"><a href="http://www.magfest.org/" target="_blank">MAGfest</a></li>
+      <li class="venue-list-item"><a href="https://www.bitgengamerfest.com/" traget="_blank">BitGen</a></li>
+      <li class="venue-list-item"><a href="https://boston8bit.com/" target="_blank">Boston 8bit</a></li>
+      <li class="venue-list-item"><a href="https://technical.ly/philly/2013/04/20/pong-cira-centre/" target="_blank">Pong/Tetris on the Cira Center</a></li>
+      <li class="venue-list-item"><a href="https://www.facebook.com/iochipmusic" target="_blank">I/O</a></li>
+      <li class="venue-list-item"><a href="http://pulsewave.org/" target="_blank">Pulsewave</a></li>
+      <li class="venue-list-item"> <a href="https://babycastles.com" target="_blank">Baby Castles</a></li>
+      <li class="venue-list-item"><a href="https://vanswarpedtour.com/" target="_blank">Warped Tour</a></li>
+      <li class="venue-list-item"><a href="http://melbourne.squaresoundsfestival.com" target="_blank">Square Sounds Melbourne</a></li>
+      <li class="venue-list-item"><a href="https://www.animenext.org/" target="_blank">AnimeNext</a></li>
+      <li class="venue-list-item"><a href="http://toomanygames.com" target="_blank">Too Many Games</a></li>
+      <li class="venue-list-item"><a href="https://library.temple.edu/beyondthepage" target="_blank">Temple University's Beyond the Page</a></li>
+      <li class="venue-list-item"><a href="http://wkdu.org/" target="_blank">Drexel Radio</a></li>
+    <ul>
+  </div>
+</div>
 
-  <div class="row">
-    <div class="col-xl-12">
-    <h4 id="videos">SELECT YOUTUBE VIDEOS</h4>&nbsp;&nbsp;&nbsp;
-    </div>
+<br>
 
-    <div class="col-xl-6">
+<div class="row">
+  <div class="col-xl-12">
+    <h3 id="videos">SELECT YOUTUBE VIDEOS</h3>
+  </div>
+
+  <div class="col-xl-6">
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/B9O8-pdZGaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/RnbPyxOUF2E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/nlcCI7E2PDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+  </div>
 
-    <div class="col-xl-6">
+  <div class="col-xl-6">
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/z0oH4jXUtpc?start=3339" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/IQKn3z5w8aY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/zowDVerZ5aE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
   </div>
+</div>
