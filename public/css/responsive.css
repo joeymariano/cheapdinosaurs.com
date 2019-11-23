@@ -115,6 +115,9 @@
   #listen-links-div {
     width: 100%;
   }
+  .mobile-pullup {
+    margin-top: 0;
+  }
   /**/
   #listen-links-div {
     width: auto;
