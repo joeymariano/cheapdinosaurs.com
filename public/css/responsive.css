@@ -54,7 +54,6 @@
   #showwrapper > a {  /* center songkick link */
     margin-top: 18px;
   }
-
 }
 
 /* // Medium devices (tablets, 768px and up) */
@@ -65,8 +64,8 @@
   }
   h3 {
     font-size: 1.4em;
-    margin: 0;
-    padding: 10px 0 0 0 ;
+    /* top | right | bottom | left */
+    padding: 0 0 20px 0;
   }
   footer{
     font-size: .8em;
@@ -91,9 +90,6 @@
   .main-list-link{
     font-size: 1.2em;
     letter-spacing: .8em;
-  }
-  #showwrapper > a {  /* center songkick link */
-    margin-top: 12px;
   }
 
 
