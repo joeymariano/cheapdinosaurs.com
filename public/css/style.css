@@ -105,7 +105,7 @@ ul{
 #showwrapper{
   display: flex;
   /* top | right | bottom | left */
-  margin: 25px 0 10px 0;
+  margin: 10px 0 8px 0;
 }
 
 #skcontainer{
@@ -132,7 +132,11 @@ footer {
   color: #999999;
   font-size: .85em;
   /* top | right | bottom | left */
-  padding: 0 0 40px 0;
+  padding: 0 0 10px 0;
+}
+
+#showwrapper > a {
+  margin-top: 12px;
 }
 
 /* unvisited link */
