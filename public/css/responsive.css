@@ -91,6 +91,9 @@
     font-size: 1.2em;
     letter-spacing: .8em;
   }
+  #showwrapper > a {
+    margin-top: 0;
+  }
 
 
   /* makes list horizontal */
@@ -106,7 +109,7 @@
     text-align: right;
   }
   #social-links-div h2{
-    margin-right: -22px;
+    margin-right: -36px;
   }
   #social-links-list .main-list-li{
     margin-right: -8px;
