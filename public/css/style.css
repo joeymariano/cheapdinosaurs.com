@@ -23,7 +23,7 @@ h1 {
 h2 {
   text-transform: lowercase;
   color: white;
-  font-size: 1.8em;
+  font-size: 1.2em;
   font-weight: 300;
   margin-bottom: 8px;
   letter-spacing: 1em;
@@ -38,7 +38,7 @@ h3 {
   font-size: 1.1em;
   letter-spacing: .4em;
   padding-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .header {
@@ -102,10 +102,47 @@ ul{
   padding-left: 0;
 }
 
+/* makes list horizontal */
+#main-list-wrapper {
+  display: inline-flex;
+  width: 100%;
+}
+#listen-links-div {
+  width: 50%;
+}
+/**/
+
+.mobile-pullup{
+  margin-top: -52px;
+}
+.main-list-link{
+  letter-spacing: .6em;
+}
+.main-list-li {
+  margin-bottom: 8px;
+}
+#social-links-div{
+  text-align: right;
+  width: 50%;
+}
+#social-links-div h2{
+  margin-right: -17px;
+}
+#social-links-div .main-list-link{
+  margin-right: -6px;
+}
+#showwrapper > a {  /* center songkick link */
+  margin-top: 18px;
+}
+#pixel-animation {
+  display: none;
+}
+
+
 #showwrapper{
   display: flex;
   /* top | right | bottom | left */
-  margin: 28px 0 8px 0;
+  margin: 0 0 8px 0;
 }
 
 #skcontainer{
