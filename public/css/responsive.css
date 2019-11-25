@@ -32,9 +32,6 @@
   }
   /**/
 
-  .mobile-pullup{
-    margin-top: -52px;
-  }
   .main-list-link{
     letter-spacing: 1em;
   }
@@ -115,7 +112,7 @@
     margin-right: -8px;
   }
   .mobile-pullup {
-    margin-top: -16px;
+    margin-top: 0;
   }
   /**/
 }
