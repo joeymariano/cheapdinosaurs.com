@@ -5,12 +5,20 @@ purple:  #03caa3  	rgb(189, 147, 249)
 bg: #282a36  	rgb(40, 42, 54) */
 
 body {
-  background-color: black;
+background: rgb(0,0,0);
+background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,16,16,1) 78%, rgba(32,32,32,1) 90%, rgba(42,42,42,1) 96%, rgba(49,49,49,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,16,16,1) 78%, rgba(32,32,32,1) 90%, rgba(42,42,42,1) 96%, rgba(49,49,49,1) 100%);
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,16,16,1) 78%, rgba(32,32,32,1) 90%, rgba(42,42,42,1) 96%, rgba(49,49,49,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#313131",GradientType=1);
   /* background-image: url('../images/sketch-still.gif');
   background-repeat: repeat;
   background-attachment: fixed; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #999999;
 }
+
+
 
 h1 {
   font-size: 8em;
@@ -47,7 +55,7 @@ h3 {
 }
 
 .container {
-  background-color: black;
+
 }
 
 .artist-pic {
