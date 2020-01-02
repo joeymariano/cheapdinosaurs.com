@@ -1,7 +1,6 @@
 require 'net/http'
 require 'json'
 require 'sinatra/flash'
-require 'pry'
 require 'aws-sdk'
 
 class ApplicationController < Sinatra::Base
@@ -41,7 +40,6 @@ class ApplicationController < Sinatra::Base
       signer = Aws::S3::Presigner.new
       mp3 = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/mp3/sicktunes_mp3.zip")
       wav = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/wav/sicktunes_wav.zip")
-      binding.pry
       @mp3link = mp3.to_s
       @wavlink = wav.to_s
       flash[:notice] = flash[:notice]
