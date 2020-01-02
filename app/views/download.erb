@@ -22,11 +22,10 @@
 		  <button type="submit" class="btn btn-primary">submit</button>
 		</form>
 		<% if flash[:notice] == 'success' %>
-			<% binding.pry %>
 			<div id="secret-link">
 				<ul>
-					<li><%= @wavlink %></li>
-					<li><%= @mp3link %></li>
+					<li><a href="<%= @mp3link %>" target="_blank">MP3</a></li>
+					<li><a href="<%= @wavlink %>" target="_blank">WAV</a></li>
 				</ul>
 			</div>
 		<% end %>

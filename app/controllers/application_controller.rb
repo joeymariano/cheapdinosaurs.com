@@ -38,19 +38,12 @@ class ApplicationController < Sinatra::Base
 
   get '/download' do
     if flash[:notice]
-      s3 = Aws::S3::Resource.new
-      bucket = s3.bucket('cheapdinosaurs')
+      signer = Aws::S3::Presigner.new
+      mp3 = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/mp3/sicktunes_mp3.zip")
+      wav = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/wav/sicktunes_wav.zip")
       binding.pry
-
-      # mp3 = bucket.objects('sicktunes/mp3')[0]
-      # wav = bucket.objects('sicktunes/wav')[0]
-
-      # mp3.url_for(:get, { :expires => 20.minutes.from_now, :secure => true }).to_s
-      # wav.url_for(:get, { :expires => 20.minutes.from_now, :secure => true }).to_s
-
-      # @mp3link = mp3
-      # @wavlink = wav
-
+      @mp3link = mp3.to_s
+      @wavlink = wav.to_s
       flash[:notice] = flash[:notice]
     end
 
