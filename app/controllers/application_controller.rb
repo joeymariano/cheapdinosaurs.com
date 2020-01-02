@@ -1,12 +1,14 @@
 require 'net/http'
 require 'json'
 require 'sinatra/flash'
+require 'pry'
 
 class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :public_folder, 'public'
   set :views, 'app/views'
+
 
   before do
     if Sinatra::Base.environment == :development
@@ -31,6 +33,30 @@ class ApplicationController < Sinatra::Base
     else
       flash[:notice] = "hmm... try again maybe."
       redirect to "/"
+    end
+  end
+
+  get '/download' do
+    @link = ENV['SICKTUNES'].to_s
+    erb :'download'
+  end
+
+  post '/code-auth' do
+    if code_auth(params['code'])
+      flash[:notice] = 'success'
+      flash[:link] = 'true'
+      redirect to "/download"
+    else
+      flash[:notice] = 'try again please'
+      flash[:link] = 'false'
+      redirect to "/download"
+    end
+  end
+
+  def code_auth(code)
+    codes = ENV['CODE_LOOKUP'].split(',')
+    return codes.any? do |c|
+      c.downcase == code
     end
   end
 end
