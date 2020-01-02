@@ -2,13 +2,13 @@ require 'net/http'
 require 'json'
 require 'sinatra/flash'
 require 'pry'
+require 'aws-sdk'
 
 class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :public_folder, 'public'
   set :views, 'app/views'
-
 
   before do
     if Sinatra::Base.environment == :development
@@ -37,18 +37,32 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/download' do
-    @link = ENV['SICKTUNES'].to_s
+    if flash[:notice]
+      s3 = Aws::S3::Resource.new
+      bucket = s3.bucket('cheapdinosaurs')
+      binding.pry
+
+      # mp3 = bucket.objects('sicktunes/mp3')[0]
+      # wav = bucket.objects('sicktunes/wav')[0]
+
+      # mp3.url_for(:get, { :expires => 20.minutes.from_now, :secure => true }).to_s
+      # wav.url_for(:get, { :expires => 20.minutes.from_now, :secure => true }).to_s
+
+      # @mp3link = mp3
+      # @wavlink = wav
+
+      flash[:notice] = flash[:notice]
+    end
+
     erb :'download'
   end
 
   post '/code-auth' do
     if code_auth(params['code'])
       flash[:notice] = 'success'
-      flash[:link] = 'true'
       redirect to "/download"
     else
       flash[:notice] = 'try again please'
-      flash[:link] = 'false'
       redirect to "/download"
     end
   end

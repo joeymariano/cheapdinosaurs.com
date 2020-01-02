@@ -213,3 +213,7 @@ a:active {
 #code-input-label {
   font-size: 2em;
 }
+
+#secret-link {
+  margin-top: 16px;
+}
