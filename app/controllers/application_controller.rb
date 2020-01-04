@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/download' do
+  get '/*' do
     if flash[:notice]
       signer = Aws::S3::Presigner.new
       mp3 = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/mp3/sicktunes_mp3.zip")
