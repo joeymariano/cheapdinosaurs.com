@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require 'aws-sdk'
 
 class ApplicationController < Sinatra::Base
+  enable :sessions
   register Sinatra::Flash
   set :public_folder, 'public'
   set :views, 'app/views'
@@ -35,13 +36,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/download' do
-    if flash[:notice]
+    if session[:show_link]
       signer = Aws::S3::Presigner.new
       mp3 = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/mp3/sicktunes_mp3.zip")
       wav = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/wav/sicktunes_wav.zip")
       @mp3link = mp3.to_s
       @wavlink = wav.to_s
-      flash[:notice] = flash[:notice]
+      flash[:notice] = 'success'
     end
 
     erb :'download'
@@ -50,10 +51,11 @@ class ApplicationController < Sinatra::Base
   post '/code-auth' do
     if code_auth(params['code'])
       flash[:notice] = 'success'
-      redirect to "/download"
+      session[:show_link] = true
+      redirect back
     else
       flash[:notice] = 'try again please'
-      redirect to "/download"
+      redirect back
     end
   end
 

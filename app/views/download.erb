@@ -1,24 +1,27 @@
 <div class='row header'>
-	  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-	    <a href="/"><img class="img-fluid" src="images/logo.png"></a>
-	  </div>
+  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+    <a href="/"><img class="img-fluid" src="images/logo.png"></a>
+  </div>
 
-	  <div class="col-xl-4 col-lg-4 col-md-0 col-sm-12 col-12">
-	    <img id='pixel-animation' class="img-fluid" src="images/bg-ani-strip.gif">
-	  </div>
-	</div>
+  <div class="col-xl-4 col-lg-4 col-md-0 col-sm-12 col-12">
+    <img id='pixel-animation' class="img-fluid" src="images/bg-ani-strip.gif">
+  </div>
+</div>
+
+<div class='row'>
 	<div class='col-xs-8 col-sm-8 col-md-6 col-lg-4 col-xl-4'>
 		<form action="/code-auth" method="POST">
 		  <div class="form-group">
 		  	<% if flash[:notice] %>
-          <label id="code-input-label" for="code-input"><%= flash[:notice] %></label>
-        <% else %>
+		  		<label id="code-input-label" for="code-input"><%= flash[:notice] %></label>
+				<% else %>
 			    <label id="code-input-label" for="code-input">enter code</label>
 		    <% end %>
 		    <input type="code" class="form-control" id="code" placeholder="in this box." name="code">
 		  </div>
 		  <button type="submit" class="btn btn-primary">submit</button>
 		</form>
+
 		<% if flash[:notice] == 'success' %>
 			<div id="secret-link">
 				<ul>
@@ -27,8 +30,5 @@
 				</ul>
 			</div>
 		<% end %>
-	</div>
-	<div class='col-xs-4 col-sm-4 col-md-6 col-lg-8 col-xl-8'>
-		
 	</div>
 </div>
