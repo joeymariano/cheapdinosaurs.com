@@ -40,11 +40,23 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
+        <!-- ηmlstyl -->
+        <% require 'sinatra/flash' %>
 
-    <!-- content gets loaded here --> <%= yield %> <!-- content end -->
+        <div class='row header'>
+          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+            <a href="/"><img class="img-fluid" src="images/logo.png"></a>
+          </div>
 
-    <br>
-    <footer><strong>Ⓒ</strong> cheap dinosaurs 2018</footer>
+          <div class="col-xl-4 col-lg-4 col-md-0 col-sm-12 col-12">
+            <img id='pixel-animation' class="img-fluid" src="images/bg-ani-strip.gif">
+          </div>
+        </div>
+
+        <!-- content gets loaded here --> <%= yield %> <!-- content end -->
+
+        <br>
+        <footer><strong>Ⓒ</strong> cheap dinosaurs 2018</footer>
     </div>
 
     <!-- Optional JavaScript -->
