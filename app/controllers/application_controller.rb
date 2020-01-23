@@ -4,17 +4,15 @@ require 'net/http'
 require 'json'
 require 'aws-sdk'
 
+if Sinatra::Base.environment == :development
+  require 'dotenv/load'
+end
+
 class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :public_folder, 'public'
   set :views, 'app/views'
-
-  before do
-    if Sinatra::Base.environment == :development
-      require 'dotenv/load'
-    end
-  end
 
   helpers do
     def code_auth(code)
@@ -26,6 +24,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    session.clear
     url = "https://api.songkick.com/api/3.0/artists/1892714/calendar.json?apikey=#{ENV['SONGKICK_API_KEY']}"
     uri = URI(url)
     response = Net::HTTP.get(uri) # should try to get this to still load when songkick or internet is down
@@ -67,9 +66,5 @@ class ApplicationController < Sinatra::Base
       flash[:notice] = 'try again please'
       redirect back
     end
-  end
-
-  after do
-    session.clear
   end
 end
