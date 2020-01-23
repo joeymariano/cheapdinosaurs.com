@@ -971,7 +971,7 @@ DEPENDENCIES
   rake
   require_all
   shotgun
-  sinatra (>= 2.0.2)
+  sinatra
   sinatra-activerecord
   sinatra-flash
   tux
