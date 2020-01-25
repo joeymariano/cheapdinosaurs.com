@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     response = Net::HTTP.get(uri) # should try to get this to still load when songkick or internet is down
     result = JSON.parse(response)
     @events = result['resultsPage']['results']['event']
-    erb :'root'
+    erb :'index'
   end
 
   get '/download' do
@@ -31,9 +31,10 @@ class ApplicationController < Sinatra::Base
       @mp3link = mp3.to_s
       @wavlink = wav.to_s
       flash[:notice] = 'success'
+      erb :'download'
+    else
+      erb :'download'
     end
-
-    erb :'download'
   end
 
   post '/email' do
