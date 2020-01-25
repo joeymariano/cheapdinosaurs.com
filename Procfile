@@ -1,1 +1,1 @@
-rackup
+bundle exec rackup
