@@ -4,16 +4,16 @@ Cheap Dinosaurs
 ======
 **CheapDionsaurs.com** queries Songkick.com Cheap Dinosaurs concerts, has an email to database capture system, and a redeemable code system for serving music files from AWS.
 
-* Running on Heroku: [show-finder.com](https://www.show-finder.com)
+* Running on Heroku: [cheapdinosaurs.com](https://www.cheapdinosaurs.com)
 
 * copyright Joey Michalina Mariano 2018
 
 # Specs
 
-* Ruby version 2.5.1rak
+* Ruby version 2.5.1
 
 * Sinatra Framework
-  - Active Model conncection to database
+  - Active Model connection to database
 
 * Uses built in net/http Ruby methods for API calls
 
