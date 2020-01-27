@@ -1,8 +1,8 @@
 ![cheap-dinosaurs](https://www.cheapdinosaurs.com/images/logo.png)
 
-Cheap Dinosaurs
-======
-**CheapDionsaurs.com**
+## WWW DOT Cheap Dinosaurs DOT COM
+
+# Features
 
 * Running on Heroku: [cheapdinosaurs.com](https://www.cheapdinosaurs.com)
 	- queries the Songkick.com API for Cheap Dinosaurs concerts
