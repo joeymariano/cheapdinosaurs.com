@@ -1,10 +1,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: cheapdinos_emails
+  database: cheap_emails_dev
   pool: 2
-  username: cheapdinos_emails
-  password: ventsoftrench35
+  username: joey
+  password: joey
 
 production:
   adapter: postgresql

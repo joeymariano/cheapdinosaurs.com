@@ -1,3 +1,12 @@
+require 'sinatra/flash'
+require 'net/http'
+require 'json'
+require 'aws-sdk'
+
+if Sinatra::Base.environment == :development
+  require 'dotenv/load'
+end
+
 class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -14,7 +23,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    session.clear
     url = "https://api.songkick.com/api/3.0/artists/1892714/calendar.json?apikey=#{ENV['SONGKICK_API_KEY']}"
     uri = URI(url)
     response = Net::HTTP.get(uri) # should try to get this to still load when songkick or internet is down
@@ -30,7 +38,6 @@ class ApplicationController < Sinatra::Base
       wav = signer.presigned_url(:get_object, bucket: "cheapdinosaurs", key: "sicktunes/wav/sicktunes_wav.zip")
       @mp3link = mp3.to_s
       @wavlink = wav.to_s
-      flash[:notice] = 'success'
       erb :'download'
     else
       erb :'download'
@@ -40,11 +47,11 @@ class ApplicationController < Sinatra::Base
   post '/email' do
     email = Email.new(email: params['email'])
     if email.save
-      flash[:notice] = "thanks for signing up ;)"
-      redirect to "/"
+      flash[:notice] = 'thanks for signing up ;)'
+      redirect back
     else
-      flash[:notice] = "hmm... try again maybe."
-      redirect to "/"
+      flash[:notice] = 'hmm... try again maybe.'
+      redirect back
     end
   end
 
