@@ -2,9 +2,13 @@
 
 Cheap Dinosaurs
 ======
-**CheapDionsaurs.com** queries Songkick.com Cheap Dinosaurs concerts, has an email to database capture system, and a redeemable code system for serving music files from AWS.
+**CheapDionsaurs.com**
 
 * Running on Heroku: [cheapdinosaurs.com](https://www.cheapdinosaurs.com)
+	- queries the Songkick.com API for Cheap Dinosaurs concerts
+	- has an email to database capture system
+	- utilizes a redeemable code system for serving music files from our AWS S3 bucket
+	- fresh tunes served daily
 
 * copyright Joey Michalina Mariano 2018
 
@@ -17,7 +21,7 @@ Cheap Dinosaurs
 
 * Uses built in net/http Ruby methods for API calls
 
-* Checks ENV variable for code matches in download system
+* Checks private ENV variable for code matches in download system
 
 # Usage
 
