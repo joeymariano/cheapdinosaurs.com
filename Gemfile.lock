@@ -956,7 +956,7 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
-    tzinfo (1.2.1)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     zeitwerk (2.2.2)
 
@@ -978,7 +978,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-flash
   tux
-  tzinfo (= 1.2.1)
+  tzinfo (= 1.2.10)
   tzinfo-data
 
 RUBY VERSION

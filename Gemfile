@@ -4,7 +4,7 @@ ruby '2.5.1'
 
 gem "sinatra"
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-gem 'tzinfo',       '1.2.1'
+gem 'tzinfo',       '1.2.10'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
